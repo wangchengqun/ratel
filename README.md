@@ -24,6 +24,12 @@ https://github.com/wangchengqun/ratel/blob/master/RatelServer/conf/conf.yaml
 ## 前台页面
 + [ng-alain](https://ng-alain.com/zh)
 	
+## windows服务安装
+	
+	发布 RatelWindowsServerInsatll 项目
+	cmd 管理员身份运行
+	dotnet RatelWindowsServerInsatll.dll  MyService
+	
 ![image1](https://github.com/wangchengqun/ratel/blob/master/image/image1.png)
 
 
