@@ -8,7 +8,8 @@ namespace Demo
         {
             while (true)
             {
-                var _str1 = RatelHttpHelpServer.GetValue("test1", "app_dev1");
+
+                var _str1 = RatelHttpHelpServer.GetValue("dev_web", "mongodbUrl");
                 Console.WriteLine(_str1);
 
             }
