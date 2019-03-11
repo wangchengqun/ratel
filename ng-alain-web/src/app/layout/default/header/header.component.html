@@ -1,0 +1,21 @@
+<div class="alain-default__header-logo">
+ 
+  <h2 style="color:white;margin-left: 23px;margin-top: 10px;">配置中心</h2>
+</div>
+<div class="alain-default__nav-wrap">
+  <ul class="alain-default__nav">
+    <!-- Menu -->
+    <li>
+      <div class="alain-default__nav-item" (click)="toggleCollapsedSidebar()">
+        <i nz-icon type="menu-{{settings.layout.collapsed ? 'unfold' : 'fold'}}"></i>
+      </div>
+    </li>
+    
+  </ul>
+  <ul class="alain-default__nav">
+   
+    <li class="hidden-mobile">
+      <header-user></header-user>
+    </li>
+  </ul>
+</div>

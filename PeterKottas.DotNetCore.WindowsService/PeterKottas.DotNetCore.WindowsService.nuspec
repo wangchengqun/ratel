@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>PeterKottas.DotNetCore.WindowsService</id>
+    <title>PeterKottas.DotNetCore.WindowsService</title>
+    <version>2.0.6</version>
+    <authors>Peter Kottas</authors>
+    <description>Easiest to use library that allows one to host .net core as windows services there is.</description>
+    <summary>.NET Core Windows service</summary>
+    <language>en-US</language>
+    <tags>dotnetcore,.netcore,'windows service','micro service'</tags>
+    <projectUrl>https://github.com/PeterKottas/DotNetCore.WindowsService</projectUrl>
+    <licenseUrl>https://github.com/PeterKottas/DotNetCore.WindowsService/blob/master/LICENSE</licenseUrl>
+    <dependencies>
+      <dependency id="DasMulli.Win32.ServiceUtils" version="1.0.1" />
+      <dependency id="PeterKottas.DotNetCore.CmdArgParser" version="1.0.5" />
+      <dependency id="System.ServiceProcess.ServiceController" version="4.4.0" />
+      <dependency id="Microsoft.Extensions.PlatformAbstractions" version="1.1.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\netcoreapp2.0\*.dll" target="lib\netcoreapp2.0" />
+    <file src="bin\Release\net471\*.dll" target="lib\net471" />
+  </files>
+</package>

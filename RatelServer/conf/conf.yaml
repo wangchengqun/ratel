@@ -1,0 +1,8 @@
+﻿Server:
+    ip: 127.0.0.1
+    port: 7890
+Web:
+    port: 7891
+    loginUser: admin
+    passWord: admin
+Key: QERTYUIOPLKJHGFDA

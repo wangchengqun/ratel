@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="web\dist\app-data.json" />
+    <None Remove="web\dist\data-v-data-v-module.js" />
+    <None Remove="web\dist\delon-delon-module.js" />
+    <None Remove="web\dist\exception-exception-module.js" />
+    <None Remove="web\dist\extras-extras-module.js" />
+    <None Remove="web\dist\index.html" />
+    <None Remove="web\dist\main.js" />
+    <None Remove="web\dist\polyfills.js" />
+    <None Remove="web\dist\pro-pro-module.js" />
+    <None Remove="web\dist\runtime.js" />
+    <None Remove="web\dist\scripts.js" />
+    <None Remove="web\dist\style-style-module.js" />
+    <None Remove="web\dist\styles.js" />
+    <None Remove="web\dist\vendor.js" />
+    <None Remove="web\dist\widgets-widgets-module.js" />
+    <None Remove="web\dist\zh-CN.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="web\dist\app-data.json" />
+    <EmbeddedResource Include="web\dist\extras-extras-module.js" />
+    <EmbeddedResource Include="web\dist\index.html" />
+    <EmbeddedResource Include="web\dist\main.js" />
+    <EmbeddedResource Include="web\dist\polyfills.js" />
+    <EmbeddedResource Include="web\dist\runtime.js" />
+    <EmbeddedResource Include="web\dist\scripts.js" />
+    <EmbeddedResource Include="web\dist\styles.js" />
+    <EmbeddedResource Include="web\dist\vendor.js" />
+    <EmbeddedResource Include="web\dist\zh-CN.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="protobuf-net" Version="2.4.0" />
+    <PackageReference Include="SharpYaml" Version="1.6.5" />
+  </ItemGroup>
+
+</Project>

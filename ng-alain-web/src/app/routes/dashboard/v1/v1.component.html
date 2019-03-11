@@ -1,0 +1,168 @@
+<div class="alain-default__content-title">
+  <h1>
+    业务类型
+  </h1>
+</div>
+<!-- <st class="bg-white" [data]="users" [columns]="columns" [expand]="expand" expandRowByClick>
+    <ng-template #expand let-item let-index="index" let-column="column">
+      {{ item.description }}
+    </ng-template>
+</st> -->
+
+<!-- add(modalEdit) -->
+<button nz-button (click)="BusinessTypeAdd()" [nzType]="'primary'">
+    <i nz-icon type="plus"></i>
+    <span>新建</span>
+  </button>
+<div class="bg-white">
+
+<nz-table #nestedTable [nzData]="listOfParentData" [nzShowPagination]="true"
+   [nzFrontPagination]="false" [nzTotal]="PageTotal"
+      (nzPageIndexChange)="nestedTableIndexChange(nestedTable)" [nzScroll]="{x:'1100px'}">
+    <thead>
+      <tr>
+        <th nzShowExpand></th>
+        <th nzWidth="100px" nzLeft="0px">业务类型</th>
+        <th nzWidth="50%">备注</th>
+        <th nzWidth="100px" nzRight="0px">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+      <ng-template ngFor let-data [ngForOf]="nestedTable.data">
+        <tr>
+          <td nzShowExpand [(nzExpand)]="data.expand" 
+              (nzExpandChange)="innerTableExpandChange(data.expand,data.key,innerTable)"></td>
+          <td nzLeft="0px">{{data.key}}</td>
+          <td>{{data.value}}</td>
+          <td nzRight="0px">
+              <span class="table-operation">
+                                  <a (click)="addBusinessData(data.key,innerTable)">添加</a>
+                                  <nz-divider nzType="vertical"></nz-divider>
+                                  <a (click)="BusinessTypeEdit(data)">编辑</a>
+                                  <nz-divider nzType="vertical"></nz-divider>
+                                  <a (click)="Delete(data)">删除</a>
+              </span>
+          </td>
+        </tr>
+        <tr [nzExpand]="data.expand">
+          <td></td>
+          <td colspan="7">
+        <div class="bg-white">
+            <nz-table #innerTable [nzData]="data.childList" 
+             nzSize="middle" [nzShowPagination]="true" [nzFrontPagination]="false" 
+             (nzPageIndexChange)="innerTableIndexChange(innerTable,data.key)" >
+                <thead>
+                  <tr>
+                    <th nzWidth="100px" nzLeft="0px">key</th>
+                    <th nzWidth="100px">value</th>
+                    <th nzWidth="100px" nzRight="0px">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let type_data of innerTable.data">
+                    <td nzLeft="0px">{{type_data.key}}</td>
+                    <td>{{type_data.content}}</td>
+                    <td nzRight="0px">
+                                <span class="table-operation">
+                                  <nz-divider nzType="vertical"></nz-divider>
+                                <a (click)="editaddBusinessData(type_data,data.key,innerTable)" >编辑</a>
+                                  <nz-divider nzType="vertical"></nz-divider>
+                                  <a (click)="DeleteData(type_data,data.key,innerTable)" >删除</a>
+                                </span>
+                    </td>
+                  </tr>
+                </tbody>
+          </nz-table>
+       </div>  
+  </td>
+  </tr>
+  </ng-template>
+
+
+  </tbody>
+  </nz-table>
+</div>
+
+
+<!-- <ng-template #modalEditData>
+    <nz-form-item>
+      <nz-form-label nzFor="no">key</nz-form-label>
+      <nz-form-control>
+        <input nz-input [(disabled)]="disabledEditData" [(ngModel)]="BusinessDataKey" name="BusinessDataKey" placeholder="请输入" >
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label nzFor="no">value</nz-form-label>
+        <nz-form-control>
+            <textarea nz-input placeholder="请输入"
+             [(ngModel)]="BusinessDataValue" [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>
+        </nz-form-control>
+      </nz-form-item>
+  </ng-template> -->
+
+  <nz-modal [(nzVisible)]="isVisibleData" [nzTitle]="modalTitleData" [nzContent]="modalContentData" 
+     [nzFooter]="modalFooterData" (nzOnCancel)="handleCancelData()">
+    <ng-template #modalTitleData>
+    配置
+    </ng-template>
+  <ng-template #modalContentData>
+
+    <nz-form-item>
+      <nz-form-label nzFor="no">key</nz-form-label>
+      <nz-form-control>
+        <input nz-input [(disabled)]="disabledEditData" [(ngModel)]="BusinessDataKey" name="BusinessDataKey" placeholder="请输入" >
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label nzFor="no">value</nz-form-label>
+        <nz-form-control>
+            <textarea nz-input placeholder="请输入"
+             [(ngModel)]="BusinessDataValue" [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>
+        </nz-form-control>
+      </nz-form-item>
+
+  </ng-template>
+<ng-template #modalFooterData>
+  <button nz-button nzType="default" (click)="handleCancelData()">取消</button>
+  <button nz-button nzType="primary" (click)="BusinessDataSave()" [nzLoading]="isConfirmLoadingData">保存</button>
+</ng-template>
+</nz-modal>
+
+  
+
+
+
+  
+    <nz-modal [(nzVisible)]="isVisible" [nzTitle]="modalTitle" [nzContent]="modalContent" 
+            [nzFooter]="modalFooter" (nzOnCancel)="handleCancel()">
+      <ng-template #modalTitle>
+        业务类型
+      </ng-template>
+      <ng-template #modalContent>
+        
+        <nz-form-item>
+          <nz-form-label nzFor="no">类型</nz-form-label>
+          <nz-form-control>
+            <input nz-input [(disabled)]="disabledEdit" required [(ngModel)]="BusinessKey" name="BusinessKey" placeholder="请输入" >
+          </nz-form-control>
+        </nz-form-item>
+    
+        <nz-form-item>
+            <nz-form-label nzFor="no">备注</nz-form-label>
+            <nz-form-control>
+                <textarea nz-input placeholder="请输入"
+                 [(ngModel)]="BusinessValue" [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>
+            </nz-form-control>
+        </nz-form-item>
+
+      </ng-template>
+      <ng-template #modalFooter>
+        <button nz-button nzType="default" (click)="handleCancel()">取消</button>
+        <button nz-button nzType="primary" (click)="BusinessTypeSave()" [nzLoading]="isConfirmLoading">保存</button>
+      </ng-template>
+    </nz-modal>
+

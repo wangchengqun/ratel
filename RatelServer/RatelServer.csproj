@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="web\**" />
+    <EmbeddedResource Remove="web\**" />
+    <None Remove="web\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="UseMiddlewarePath.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ratel\Ratel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="conf\conf.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Model\" />
+  </ItemGroup>
+
+</Project>

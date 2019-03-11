@@ -1,0 +1,31 @@
+<div class="modal-header">
+  <div class="modal-title">添加-集群</div>
+</div>
+
+<form #f="ngForm" (ngSubmit)="save()" nz-form>
+  <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="4">IP地址</nz-form-label>
+    <nz-form-control nzSpan="20">
+      <input nz-input [(ngModel)]="ipaddress" name="ipaddressa" maxlength="50" required />
+      <p nz-form-explain>例如：192.168.1.1:8000</p>
+    </nz-form-control>
+  </nz-form-item>
+
+
+  <!-- <nz-form-item class="mb-sm">
+    <nz-form-label nzSpan="4">主/从</nz-form-label>
+    <nz-form-control nzSpan="20">
+      <nz-select [(ngModel)]="master" name="master" required [nzAllowClear]="false">
+        <nz-option *ngFor="let i of cat" [nzLabel]="i" [nzValue]="i">
+        </nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item> -->
+
+
+  <div class="modal-footer">
+    <button nz-button type="button" (click)="close()">关闭</button>
+    <button nz-button [disabled]="!f.form.valid || !f.form.dirty" 
+    [nzLoading]="http.loading" [nzType]="'primary'">保存</button>
+  </div>
+</form>
